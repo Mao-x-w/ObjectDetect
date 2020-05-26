@@ -1,0 +1,8 @@
+//apply plugin: 'android-apt'   for gradle version < 2.2.0
+//apply plugin: 'android-apt'
+
+dependencies {
+    def librariesDependencies=rootProject.ext.librariesDependencies
+    implementation librariesDependencies.butterKnife
+    annotationProcessor librariesDependencies.butterKnife_compiler
+}

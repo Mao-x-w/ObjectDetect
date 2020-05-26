@@ -1,0 +1,8 @@
+apply plugin: 'com.android.library'
+
+apply from: '../build-tools/app-config-android.gradle'
+apply from: '../build-tools/ds-test.gradle'
+
+dependencies {
+
+}

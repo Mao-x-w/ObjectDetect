@@ -1,0 +1,13 @@
+ext {
+    androidMinSdkVersion = 21
+    androidTargetSdkVersion = 23
+    androidCompileSdkVersion = 28
+
+    applicationId = "com.laomao.opencv"
+    versionCode = 1
+    versionName = '1.1.0'
+
+    httpHost = 'http://api.github.com'
+    httpHostTest = 'http://api.github.com'
+
+}

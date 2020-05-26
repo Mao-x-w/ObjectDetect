@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/grey_process"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/size_60"
+            android:layout_marginLeft="@dimen/size_15"
+            android:background="@drawable/draw_shape_round_rectangle_white_solid"
+            android:padding="@dimen/size_5"
+            android:layout_gravity="center_vertical"
+            android:text="灰度" />
+
+        <ImageView
+            android:id="@+id/grey_img"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/size_10"
+            android:layout_marginLeft="@dimen/size_30"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/size_20"
+        >
+
+        <Button
+            android:id="@+id/contours_detect"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/size_60"
+            android:layout_marginLeft="@dimen/size_15"
+            android:background="@drawable/draw_shape_round_rectangle_white_solid"
+            android:padding="@dimen/size_5"
+            android:layout_gravity="center_vertical"
+            android:text="边缘提取" />
+
+        <ImageView
+            android:id="@+id/contours_img"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/size_10"
+            android:layout_marginLeft="@dimen/size_30"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/detect_size"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/size_60"
+        android:layout_marginLeft="@dimen/size_15"
+        android:layout_marginTop="@dimen/size_15"
+        android:background="@drawable/draw_shape_round_rectangle_white_solid"
+        android:padding="@dimen/size_5"
+        android:layout_gravity="center_horizontal"
+        android:text="测大小" />
+
+</LinearLayout>

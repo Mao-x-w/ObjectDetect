@@ -1,0 +1,97 @@
+apply plugin: 'com.android.application'
+
+//apply plugin: 'android-apt'
+
+apply from: '../build-tools/ds-test.gradle'
+apply from: '../build-tools/ds-butter-knife.gradle'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
+    }
+}
+
+android {
+    def buildConfig = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion buildConfig.getAt("androidCompileSdkVersion")
+
+    signingConfigs {
+        config {
+//            storeFile file("../build-tools/wuwei.jks")
+//            keyAlias buildConfig.getAt("keyAliasRelease")
+//            keyPassword buildConfig.getAt("keyPasswordRelease")
+//            storePassword buildConfig.getAt("storePasswordRelease")
+        }
+    }
+
+    defaultConfig {
+        applicationId buildConfig.getAt("applicationId")
+        minSdkVersion buildConfig.getAt("androidMinSdkVersion")
+        targetSdkVersion buildConfig.getAt("androidTargetSdkVersion")
+        versionCode buildConfig.getAt("versionCode")
+        versionName buildConfig.getAt("versionName")
+
+        signingConfig signingConfigs.config
+
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    configurations {
+        all*.exclude group: 'com.mob.commons', module: 'share_sdk'
+    }
+
+    publishNonDefault true
+    sourceSets { main { jni.srcDirs = ['src/main/jni', 'src/main/jni/'] } }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation project(':lib_imageselector')
+
+    implementation project(':openCVLibrary3410')
+
+    def androidSupportDependencies = rootProject.ext.androidSupportDependencies
+    def librariesDependencies = rootProject.ext.librariesDependencies
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation androidSupportDependencies.support_v7
+    implementation androidSupportDependencies.design
+    implementation androidSupportDependencies.recyclerView
+
+    implementation librariesDependencies.recyclerViewDivider
+    implementation librariesDependencies.rxBus
+
+    implementation librariesDependencies.glide
+    implementation librariesDependencies.glide_transform
+    implementation librariesDependencies.glide_okhttp
+
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '27.1.1'
+            }
+        }
+    }
+}

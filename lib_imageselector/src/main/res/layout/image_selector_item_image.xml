@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:contentDescription="@null"
+    android:scaleType="centerCrop"
+    android:layout_marginTop="@dimen/size_4"
+    >
+
+    <ImageView
+        android:id="@+id/image_selector_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:minHeight="@dimen/size_100"
+        android:minWidth="@dimen/size_100"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_selector_loading"
+        android:padding="@dimen/size_1"
+        />
+
+    <TextView
+        android:id="@+id/image_selector_text"
+        android:layout_width="@dimen/size_26"
+        android:layout_height="@dimen/size_26"
+        android:background="@drawable/draw_selector_album_selct"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:textSize="@dimen/text_17_0"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/size_15"
+        android:layout_marginRight="@dimen/size_15"
+        />
+
+    <ImageView
+        android:id="@+id/video_display_icon"
+        android:layout_width="@dimen/size_27"
+        android:layout_height="@dimen/size_27"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/video_cover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#b2ffffff"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>

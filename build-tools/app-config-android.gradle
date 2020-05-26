@@ -1,0 +1,16 @@
+android {
+    def buildConfig = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion buildConfig.getAt("androidCompileSdkVersion")
+    defaultConfig {
+        minSdkVersion buildConfig.getAt("androidMinSdkVersion")
+        targetSdkVersion buildConfig.getAt("androidTargetSdkVersion")
+        versionCode buildConfig.getAt("versionCode")
+        versionName buildConfig.getAt("versionName")
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: '*.jar', exclude: 'android-support-*.jar')
+}
+
