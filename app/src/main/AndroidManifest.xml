@@ -45,6 +45,10 @@
             android:name=".GreyAndContoursActivity"
             android:screenOrientation="portrait"
             />
+        <activity
+            android:name=".CalculateSizeActivity"
+            android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>
